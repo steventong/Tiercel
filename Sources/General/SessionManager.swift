@@ -24,7 +24,11 @@
 //  THE SOFTWARE.
 //
 
-import UIKit
+#if canImport(UIKit)
+    import UIKit
+#elseif canImport(AppKit)
+    import AppKit
+#endif
 
 public class SessionManager {
     
@@ -750,7 +754,11 @@ extension SessionManager {
         if isControlNetworkActivityIndicator {
 #if !os(visionOS)
             DispatchQueue.tr.executeOnMain {
+            #if canImport(UIKit)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            #elseif canImport(AppKit)
+                NSApplication.shared.isNetworkActivityIndicatorVisible = true
+            #endif
             }
 #endif
         }
@@ -780,7 +788,11 @@ extension SessionManager {
         if isControlNetworkActivityIndicator {
 #if !os(visionOS)
             DispatchQueue.tr.executeOnMain {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                #if canImport(UIKit)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                #elseif canImport(AppKit)
+                    NSApplication.shared.isNetworkActivityIndicatorVisible = false
+                #endif
             }
 #endif
         }
