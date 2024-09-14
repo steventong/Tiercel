@@ -757,7 +757,7 @@ extension SessionManager {
             #if canImport(UIKit)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
             #elseif canImport(AppKit)
-                NSApplication.shared.isNetworkActivityIndicatorVisible = true
+//                NSApplication.shared.isNetworkActivityIndicatorVisible = true
             #endif
             }
 #endif
@@ -791,7 +791,7 @@ extension SessionManager {
                 #if canImport(UIKit)
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 #elseif canImport(AppKit)
-                    NSApplication.shared.isNetworkActivityIndicatorVisible = false
+//                    NSApplication.shared.isNetworkActivityIndicatorVisible = false
                 #endif
             }
 #endif
